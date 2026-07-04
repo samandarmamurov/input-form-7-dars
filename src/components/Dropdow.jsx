@@ -1,5 +1,5 @@
 import React from 'react'
-import { products } from '../data/Product'
+import { products } from '../data/product'
 import { v4 as uuidv4 } from 'uuid';
 
 function Dropdow({ setCatigoriy, searchCatigory }) {
