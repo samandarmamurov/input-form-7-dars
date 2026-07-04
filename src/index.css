@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer components{
+    .align-center{
+        @apply mx-auto w-full max-w-[1400px] px-5
+    }
+}
