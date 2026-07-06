@@ -15,14 +15,31 @@ function ProductCard({ product }) {
 
   const discountedPrice = Math.floor(price - (price * discount) / 100);
 
+function handlePushLocal() {
+ 
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let findProd = cart.find((item) => item.id === product.id);
+
+  if (findProd) {
+    findProd = {
+      ...findProd,
+      quantity: (findProd.quantity += 1),
+    };
+  } else {
+    cart.push({
+      ...product,
+      quantity: 1,
+    });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+}
+
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl duration-300">
       <figure className="h-60 bg-base-200">
-        <img
-          src={image}
-          alt={name}
-          className="h-full w-full object-cover"
-        />
+        <img src={image} alt={name} className="h-full w-full object-cover" />
       </figure>
 
       <div className="card-body">
@@ -31,9 +48,7 @@ function ProductCard({ product }) {
 
           <span
             className={`badge ${
-              status === "Mavjud"
-                ? "badge-success"
-                : "badge-error"
+              status === "Mavjud" ? "badge-success" : "badge-error"
             }`}
           >
             {status}
@@ -59,9 +74,7 @@ function ProductCard({ product }) {
               {price.toLocaleString()} so'm
             </p>
 
-            <span className="badge badge-error">
-              -{discount}%
-            </span>
+            <span className="badge badge-error">-{discount}%</span>
           </div>
         </div>
 
@@ -70,7 +83,11 @@ function ProductCard({ product }) {
         </div>
 
         <div className="card-actions mt-4">
-        <Button text={'buy'} variants={'primary'}></Button>
+          <Button
+            onClick={handlePushLocal}
+            text={"buy"}
+            variants={"primary"}
+          ></Button>
         </div>
       </div>
     </div>
@@ -78,4 +95,3 @@ function ProductCard({ product }) {
 }
 
 export default ProductCard;
-

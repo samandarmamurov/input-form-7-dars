@@ -21,16 +21,16 @@ function Main() {
     setData(result);
   }
 
-  function searchCatigory(category) {
-    setCatigoriy(category);
+  function searchCatigory(value) {
+    setCatigoriy(value);
 
-    if (category === "All") {
+    if (value === "All") {
       setData(products);
       return;
     }
 
     const result = products.filter(
-      (item) => item.category.toLowerCase() === category.toLowerCase(),
+      (item) => item.category.toLowerCase() === value.toLowerCase(),
     );
 
     setData(result);
