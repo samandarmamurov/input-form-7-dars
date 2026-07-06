@@ -24,6 +24,11 @@ function Main() {
   function searchCatigory(category) {
     setCatigoriy(category);
 
+    if (category === "All") {
+      setData(products);
+      return;
+    }
+
     const result = products.filter(
       (item) => item.category.toLowerCase() === category.toLowerCase(),
     );

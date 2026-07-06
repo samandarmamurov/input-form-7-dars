@@ -1,4 +1,6 @@
+import React from "react";
 import React, { useEffect, useState } from "react";
+
 
 function About() {
   let { data, setData } = useState([  ]);
