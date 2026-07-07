@@ -1,5 +1,7 @@
 import { toast } from "react-toastify";
 import Button from "./Button";
+import { useCart } from "../store/CartStore";
+
 function ProductCard({ product }) {
   const {
     name,
@@ -15,27 +17,12 @@ function ProductCard({ product }) {
   } = product;
 
   const discountedPrice = Math.floor(price - (price * discount) / 100);
+  const { addToCart } = useCart();
 
-function handlePushLocal() {
- toast.success('savatga qoshildi')
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let findProd = cart.find((item) => item.id === product.id);
-
-  if (findProd) {
-    findProd = {
-      ...findProd,
-      quantity: (findProd.quantity += 1),
-    };
-  } else {
-    cart.push({
-      ...product,
-      quantity: 1,
-    });
+  function handlePushLocal() {
+    addToCart(product);
+    toast.success("Savatga qo'shildi 🛒");
   }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-
-}
 
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl duration-300">
@@ -87,7 +74,7 @@ function handlePushLocal() {
           <Button
             onClick={handlePushLocal}
             text={"buy"}
-            variants={"primary"}
+            variant={"primary"}
           ></Button>
         </div>
       </div>

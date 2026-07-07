@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
+import Home from "./pages/Home";
+import { CartProvider } from "./store/CartStore";
 
-import Home from "./pages/Home"
-function app() {
+function App() {
   return (
-    <>
-    <Home/>
-    </>
-  )
+    <CartProvider>
+      <Home />
+    </CartProvider>
+  );
 }
 
-export default app
+export default App;
