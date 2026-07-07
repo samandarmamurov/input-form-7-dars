@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import Button from "./Button";
 function ProductCard({ product }) {
   const {
@@ -16,7 +17,7 @@ function ProductCard({ product }) {
   const discountedPrice = Math.floor(price - (price * discount) / 100);
 
 function handlePushLocal() {
- 
+ toast.success('savatga qoshildi')
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let findProd = cart.find((item) => item.id === product.id);
 
