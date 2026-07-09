@@ -1,5 +1,5 @@
 import React from "react";
-import { products } from "../data/product";
+import { products } from "../data/products";
 import { v4 as uuidv4 } from "uuid";
 
 function Dropdow({ setCatigoriy, searchCatigory }) {
@@ -14,7 +14,7 @@ function Dropdow({ setCatigoriy, searchCatigory }) {
         tabIndex="-1"
         className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
       >
-        <li onClick={()=> {
+        <li onClick={() => {
           searchCatigory("All")
         }}>
           <p>All</p>

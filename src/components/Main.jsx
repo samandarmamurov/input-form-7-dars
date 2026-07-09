@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { products } from "../data/product";
+import { products } from "../data/products";
 import Products from "./Products";
 import FilterSearch from "./FilterSearch";
 
