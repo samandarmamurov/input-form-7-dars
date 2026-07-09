@@ -6,8 +6,8 @@ export default function Navbar() {
   const { cart } = useCart();
 
   return (
-    <nav>
-      <div className="navbar bg-base-100 shadow-sm px-6">
+    <nav className="bg-base-100 shadow-sm">
+      <div className="navbar max-w-[1400px] mx-auto px-6">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl">ShopUz</a>
         </div>
